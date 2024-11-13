@@ -1,0 +1,11 @@
+<div class="d-flex">
+<h1 class="mb-3 flex-grow-1">Restaurants</h1>
+<%= link_to new_restaurant_path do %>
+  <div class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Create a restaurant</div>
+<% end %>
+</div>
+<ul class="list-group">
+  <% @restaurants.each do |restaurant| %>
+    <li class="list-group-item list-group-item-action d-flex"><%= link_to restaurant.name, restaurant_path(restaurant), class: "flex-grow-1"%></li>
+  <% end %>
+</ul>

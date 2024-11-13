@@ -1,0 +1,11 @@
+<h1 class="mb-3">New restaurant</h1>
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :phone_number %>
+  <%= f.input :category %>
+  <%= f.submit class: "btn btn-primary btn-sm" %>
+<% end %>
+<%= link_to restaurants_path do %>
+  <div class="btn btn-secondary btn-sm mt-3"><i class="fa-solid fa-list-ul"></i> Back to the list</div>
+<% end %>

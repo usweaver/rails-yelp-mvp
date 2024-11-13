@@ -6,9 +6,15 @@
 <% @restaurant.reviews.each do |review| %>
   <p><b><%= review.rating %> / 5</b> <%= review.content %></p>
 <% end %>
-<%= link_to new_restaurant_review_path(@restaurant) do %>
-  <div class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add a review</div>
+<h4 class="mb-3">Add a review for <%= @restaurant.name %></h4>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :content %>
+  <%= f.submit "Submit review", class: "btn btn-primary btn-sm" %>
 <% end %>
+<%# <%= link_to new_restaurant_review_path(@restaurant) do %>
+  <%# <div class="btn btn-primary btn-sm"><i class="fa-solid fa-plus"></i> Add a review</div> %>
+<%# <% end %>
 <hr>
 <%= link_to restaurants_path do %>
   <div class="btn btn-secondary btn-sm"><i class="fa-solid fa-list-ul"></i> Back to the list</div>
